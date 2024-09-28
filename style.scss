@@ -1,0 +1,158 @@
+$bgcolor-boxSignIn:#ffffff;
+$textAcount:#006ce8;
+$bgColor-body: #f1f5f9;
+$bgColor-input: #f1f5f9;
+body {
+    font: {
+        family: Helvetica, sans-serif;
+        size: 25px;
+        weight: bold;
+    }
+    background: {
+        color: $bgColor-body;;
+    }
+    
+}
+@mixin flex($flex-direction , $justify-content){
+    display: flex;
+    flex-direction: $flex-direction;
+    justify-content: $justify-content ;
+}
+.boxSign-in {
+    background-color: $bgcolor-boxSignIn;
+    width: 500px;
+    margin: 0 auto;
+    border: {
+        radius: 5px;
+    }
+    .boxSign-in-items{
+        @include flex(column,none);
+        padding: 20px;
+        p{
+            margin-top: 0;
+        }
+    }
+    span{
+        color: $textAcount;
+        line-height: 40px;
+        font: {
+            size: 18px;
+        }
+    }
+}
+.signIn-form{
+    @include flex(column,none);
+    input{
+        padding: 20px;
+        margin-bottom: 20px;
+        font-size: 18px;
+        border: {
+            style: none;
+            radius: 50px;
+        }
+        background: {
+            color: $bgColor-input;
+        }
+    }
+    .btn-signIn{
+        @include flex(row,space-between);
+        button{
+            padding: 10px;
+            width: 110px;
+            font-size: 18px;
+            background-color: $textAcount;
+            color: $bgColor-input;
+            border: {
+                style: none;
+                radius: 50px
+            }
+        }
+    }
+}
+.item-or {
+    span::before {
+        content: "";
+        display: inline-block;
+        border: 1px solid #ccc;
+        width: 45%;
+        height: 0;
+        margin-right: 10px;
+    }
+}
+.item-or {
+    span::after {
+        content: "";
+        display: inline-block;
+        border: 1px solid #ccc;
+        width: 45%;
+        height: 0;
+        margin-left: 10px;
+    }
+}
+@mixin color-socailMedia ($color: #000){
+    color: $color;
+}
+.social-media {
+    display: flex;
+    flex-direction: column;
+    a{
+        padding: 10px 49px;
+        border: 2px solid #ccc;
+        border-radius: 50px;
+        margin: 10px;
+        text-decoration: none;
+        text-align: center;
+        color: #000;
+        font: {
+            size: 22px;
+            weight: 200;
+        }
+        .fa.fa-google{
+            @include color-socailMedia(#ca2121);
+            font-size: 25px;
+            padding: 5px;
+        }
+        .fa-facebook{
+            @include color-socailMedia(#2143ca);
+            font-size: 25px;
+            padding: 5px;   
+        }
+        .fa-apple{
+            font-size: 25px;
+            padding: 5px;   
+        }
+    }
+}
+@mixin font-h3($size,$weight, $Family, $color, $txt-align)  {
+    font: {
+        size: $size;
+        weight: $weight;
+        family: $Family;
+    }
+    color: $color;
+    text-align: $txt-align;
+}
+@mixin flex-center($justify-content,$align-items){
+    display: flex;
+    justify-content: $justify-content;
+    width: 100%;
+    height: 500px;
+    align-items: $align-items;
+    margin: 0 auto;
+}
+.wrapper{
+    @include flex-center(center, center);
+    h3{
+        @include font-h3(30px,500,Arial,violet, center);
+
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .wrapper{
+        h3{
+            @include font-h3(18px,500,Arial,violet, center);
+    
+        }
+    }
+  }
